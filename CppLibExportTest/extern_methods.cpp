@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::exception;
 
-ERROR_CODE useStruct(int normalInput, const RecordA* structInput, int* normalOutput, RecordA* structOutput)
+ERROR_CODE useStruct(int normalInput, RecordA structInput, int* normalOutput, RecordA* structOutput)
 {
     // out 파라미터로 지정되어 있기때문에 nullptr인 경우는 없지만, 일단 체크한다.
     // 실제로는 단순히 FAIL이 아닌 구체적인 에러코드를 반환한다.
@@ -20,9 +20,9 @@ ERROR_CODE useStruct(int normalInput, const RecordA* structInput, int* normalOut
         // 실수를 방지하기 위해서 상수 포인터로 지정할 수 있다.
         // (int* const normalOutput, RecordA* const structOutput 사용)
         *normalOutput = normalInput + 100;
-        structOutput->intValue = structInput->intValue * 2;
-        structOutput->floatValue = structInput->floatValue * 3;
-        structOutput->doubleValue = structInput->doubleValue * 4;
+        structOutput->intValue = structInput.intValue * 2;
+        structOutput->floatValue = structInput.floatValue * 3;
+        structOutput->doubleValue = structInput.doubleValue * 4;
 
         return OK;
     }

@@ -9,7 +9,6 @@
 
 EXTERN_C_START
 
-// 네이티브 함수에서는 const pointer로 설정하여 인풋의 오염을 방지한다.
-ERROR_CODE CPPLIBEXPORTTEST_API useStruct(int normalInput, const RecordA* structInput, int* normalOutput, RecordA* structOutput);
+ERROR_CODE CPPLIBEXPORTTEST_API useStruct(int normalInput, RecordA structInput, int* normalOutput, RecordA* structOutput);
 
 EXTERN_C_END
